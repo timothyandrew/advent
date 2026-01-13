@@ -1,17 +1,17 @@
-"""Advent of Code 2025 - Day XX."""
+"""Advent of Code 2025 - Day 01."""
 
 from utils import read_input, read_lines
 
 
 def part1():
     """Solve part 1."""
-    lines = read_lines(XX, "sample")
+    lines = read_lines(1, "sample")
     pass
 
 
 def part2():
     """Solve part 2."""
-    lines = read_lines(XX, "sample")
+    lines = read_lines(1, "sample")
     pass
 
 

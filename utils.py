@@ -3,15 +3,15 @@
 from pathlib import Path
 
 
-def read_input(day: int) -> str:
+def read_input(day: int, type: str) -> str:
     """Read the input file for a given day as a string."""
-    path = Path(__file__).parent / "inputs" / f"day{day:02d}.txt"
+    path = Path(__file__).parent / "inputs" / f"day{day:02d}/{type}.txt"
     return path.read_text().strip()
 
 
-def read_lines(day: int) -> list[str]:
+def read_lines(day: int, type: str) -> list[str]:
     """Read the input file for a given day as a list of lines."""
-    return read_input(day).splitlines()
+    return read_input(day, type).splitlines()
 
 
 def read_ints(day: int) -> list[int]:

@@ -2,6 +2,7 @@
 """Generate a new day's solution file from template."""
 
 import argparse
+import os
 from pathlib import Path
 
 
@@ -17,7 +18,9 @@ def main():
     root = Path(__file__).parent
     template = root / "solutions" / "template.py"
     target = root / "solutions" / f"day{args.day:02d}.py"
-    input_file = root / "inputs" / f"day{args.day:02d}.txt"
+
+    input_dir = root / "inputs" / f"day{args.day:02d}"
+    input_files = [input_dir / filename for filename in ["puzzle.txt", "sample.txt"]]
 
     if target.exists():
         print(f"Solution file for day {args.day} already exists")
@@ -27,9 +30,13 @@ def main():
     target.write_text(content)
     print(f"Created {target}")
 
-    if not input_file.exists():
-        input_file.touch()
-        print(f"Created empty input file: {input_file}")
+    if not input_dir.exists():
+        os.mkdir(input_dir)
+
+    for input_file in input_files:
+        if not input_file.exists():
+            input_file.touch()
+            print(f"Created empty input file: {input_file}")
 
 
 if __name__ == "__main__":
